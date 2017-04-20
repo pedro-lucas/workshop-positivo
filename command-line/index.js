@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
 // Importo as bibliotecas que vamos utilizar
 const program = require('commander');
 const ProgressBar = require('progress');
@@ -9,6 +13,7 @@ const bar = new ProgressBar('Imprimindo [:bar] :current/:total :token1', {
 program
 .version('0.0.1')
 .option('-p, --print', 'Imprimir alguma coisa na tela')
+.option('-t, --test <string>', 'Fazer algo com uma entrada string')
 .parse(process.argv);
 
 if (program.print) {
@@ -25,4 +30,7 @@ if (program.print) {
     }
   }, 100);
 
+}else if(program.test) {
+  // Imprime o valor no console
+  console.log('Valor', program.test);
 }
